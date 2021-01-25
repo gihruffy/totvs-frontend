@@ -1,0 +1,52 @@
+<section id="auctionList">
+<div class="row d-md-flex justify-content-md-center align-items-center align-items-center ">
+  <div class="col-md-10 ">
+    <h2>Auctions</h2>
+    <hr />
+    <div class="card ">
+      <div class="card-header">
+        Auction list
+      </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary mb-2" [routerLink]="['/new']">New Auction</button>
+        <table class="table table-hover text-center">
+          <thead>
+            <tr class="bg-primary text-light">
+              <th>Name</th>
+              <th>Initial Value</th>
+              <th>Is Used</th>
+              <th>User</th>
+              <th>Ended</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let auction of auctionList ; index as i;" >
+              <td>{{ auction.name }}</td>
+              <td>{{ auction.initialValue }}</td>
+              <td>{{ auction.used }}</td>
+              <td>{{ auction.user.userName }}</td>
+              <td>{{ auction.endDare | auctionHasEnded }}</td>
+              <td>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                  <a
+                  [routerLink]="['/edit', auction.id]"
+                  class="btn btn-outline-info btn-sm mr-2"
+                    >Edit</a
+                  >
+                  <button
+                    class="btn btn-outline btn-danger btn-sm"
+                    (click)="deleteAuction(auction)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

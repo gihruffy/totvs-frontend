@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "auctionFront"
+  "defaultProject": "auctionFront",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,4 @@
+#auctionList > .row {
+  margin-top: 100px;
+  flex-direction: row;
+}

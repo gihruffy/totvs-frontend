@@ -1,0 +1,64 @@
+<section id="auction-form">
+  <div class="row d-md-flex justify-content-md-center align-items-center align-items-center ">
+    <div class="col-md-8 ">
+      <h2>{{title}} Auction Form</h2>
+      <hr>
+      <div class="card ">
+        <div class="card-header">
+          {{title}}
+        </div>
+        <div class="card-body">
+          <form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-6">
+                    <label>Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="auction.name" name="name" formControlName="name" required [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        Name is required.
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label>Valor Inicial</label>
+                    <input currencyMask [(ngModel)]="auction.initialValue" name="initialValue" class="form-control" formControlName="initialValue" [ngClass]="{ 'is-invalid': submitted && f.initialValue.errors }"/>
+                    <div *ngIf="submitted && f.initialValue.errors" class="invalid-feedback">
+                      <div *ngIf="f.initialValue.errors.required">initialValue is required</div>
+                      <div *ngIf="f.initialValue.errors.pattern">initialValue is invalid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="startDate" class="form-check-label">Start Date</label>
+                    <input class="form-control" type="datetime-local" [(ngModel)]="auction.startDate" [value]="auction.startDate" name="startDate" id="startDate" formControlName="startDate" required [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }">
+                    <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.startDate.required">Start Date is required</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label for="endDate" class="form-check-label">End Date</label>
+                    <input class="form-control" type="datetime-local" [(ngModel)]="auction.endDate" [value]="auction.endDate" name="dataFinalizacao" formControlName="endDate" id="endDate" required [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }">
+                    <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                      <div *ngIf="f.endDate.required">End Date is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <br />
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" [(value)]="auction.used" [checked]="auction.used === true" (change)="toggleVisibility($event)" id="auction.used">
+                        <label class="form-check-label" for="auction.used">Used</label>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end" >
+                <button type="submit" class="btn btn-primary mr-5">Save</button>
+                <button type="button" class="btn btn-secondary" [routerLink]="['']">Back</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

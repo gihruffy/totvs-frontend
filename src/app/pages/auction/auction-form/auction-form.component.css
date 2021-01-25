@@ -1,0 +1,4 @@
+#auction-form > .row {
+  height: 50vh;
+  flex-direction: row;
+}

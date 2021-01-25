@@ -1,0 +1,13 @@
+.login-container > .row{
+  display: flex;
+  align-items: center;
+  height: 50vh;
+  flex-direction: row;
+}
+
+.login-box {
+  padding: 100px 30px 100px;
+  background-color: #eeeeee;
+  box-shadow: 12px oldlace;
+  border-radius: 12px;
+}
