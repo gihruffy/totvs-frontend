@@ -13,7 +13,7 @@ Para rodar o projeto, execute os seguintes passos:
 
 O Projeto roda no ambiente padrão do angular, ou seja, localhost:4200.
 
-Para Acessar o Backend é necessário rodar o projeto [TOTVSChallangeAPI] (https://github.com/gihruffy/totvs-challange).
+Para Acessar o Backend é necessário rodar o projeto [TOTVSChallangeAPI] (https://github.com/gihruffy/totvs-challenge).
 
 Por padrão as variaveis de ambiente estão configuradas no arquivo `environments.ts` que está apontando para api no endereço [http://localhost:5000][http://localhost:5000].
 
